@@ -1,2 +1,2 @@
-# advance-algorithms
+# Algorithm Practice.
 Algorithm Practice.
