@@ -27,11 +27,15 @@ public class QueueTwoStacksImpl {
 		if (!this.secondStack.isEmpty()) {
 			return this.secondStack.pop();
 		} else  {
+			if (this.firstStack.isEmpty()) {
+				System.out.println("Queue is empty.");
+				return -1;
+			}
 			while (!this.firstStack.isEmpty()) {
 				this.secondStack.push(this.firstStack.pop());
 			}
+			return this.secondStack.pop();
 		}
-		return this.secondStack.pop();
 	}
 	
 	public int size() {
