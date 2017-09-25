@@ -11,9 +11,9 @@ public class SingleLinkedList {
 			head = newNode;
 			tail = newNode;
 		} else {
-			Node temp = head.getNext();
+			Node temp = head;
 			newNode.setNext(temp);
-			head.setNext(newNode);
+			head = newNode;
 		}
 		size++;
 	}
@@ -36,16 +36,51 @@ public class SingleLinkedList {
 			return null;
 		} else {
 			Node tempNode = head;
-			while (tempNode.getNext() != null) {
+			Node prevNode = null;
+			while (tempNode != null) {
 				if (tempNode.getData() == data) {
-					//to-do
+					prevNode.setNext(tempNode.getNext());
 					size--;
 				} else {
+					prevNode = tempNode;
 					tempNode = tempNode.getNext();
 				}
 			}
 		}
 		
 		return result;
+	}
+	public int getFirst() {
+		if (head == null) {
+			System.out.println("LinkedList is Empty.");
+			return -1;
+		} else {
+			return head.getData();
+		}
+	}
+	@Override
+	public String toString() {
+		StringBuffer outputBuff = new StringBuffer();
+		Node tempNode = head;
+		int index = 0;
+		while (tempNode != null) {
+			outputBuff.append("[" + index + "=" + tempNode.getData() + "]");
+			tempNode = tempNode.getNext();
+			index++;
+		}
+		
+		return "SingleLinkedList [head=" + head + ", tail=" + tail + ", size="
+				+ size + "]\nElements" + outputBuff.toString();
+	}
+	
+	public static void main(String[] args) {
+		SingleLinkedList sLinkedList = new SingleLinkedList();
+		sLinkedList.insertFirst(5);
+		sLinkedList.insertFirst(9);
+		sLinkedList.insertFirst(2);
+		sLinkedList.insertFirst(9);
+		
+		System.out.println("Get First Expected 9 :" + sLinkedList.getFirst());
+		System.out.println("Linked List Output :" + sLinkedList);
 	}
 }
