@@ -1,12 +1,16 @@
 package com.alysoft.algorithms.linkedlist;
 
 public class Node {
-	private Node next;
-	private int data;
+	 Node next;
+	 int data;
 	
 	public Node(int data, Node next) {
 		this.data = data;
 		this.next = next;
+	}
+	public Node(int d) {
+		 data=d;
+	        next=null;
 	}
 	public void setNext(Node next) {
 		this.next = next;
@@ -17,8 +21,11 @@ public class Node {
 	public int getData() {
 		return data;
 	}
+	public int getSize() {
+		return 1 + (next != null ? next.getSize() : 0);
+	}
 	@Override
 	public String toString() {
-		return "Node [next=" + next + ", data=" + data + "]";
+		return "[" + this.data + "]->" + this.next;
 	}
 }

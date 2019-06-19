@@ -17,6 +17,10 @@ public class BinarySearchTree {
 		    Node(int value) {
 		    	this.data = value;
 		    }
+		    @Override
+		    public String toString() {
+		    	return "[Data = " + data + "]";
+		    }
 		 }
 	 
 	public BinaryNode getMinNode(BinaryNode rootNode) {
@@ -119,7 +123,8 @@ public class BinarySearchTree {
 		 
 		 Node afterInsertion = bst.insert(root, 6);
 		 
-		 bst.printBinaryTree(afterInsertion);
+		 //bst.printBinaryTree(afterInsertion);
+		 System.out.println("\n\n Result " + bst.getLeastCommonAncestor(root, 2, 7));
 		 
 		 //4 2 3 1 7
 		 root = null;
@@ -129,9 +134,23 @@ public class BinarySearchTree {
 		 root = bst.insert(root, 1);
 		 root = bst.insert(root, 7);
 		 root = bst.insert(root, 6);
-		 System.out.println("\n\nCompleted the prepration of new Tree..");
-		 bst.printBinaryTree(afterInsertion);
+		 //System.out.println("\n\nCompleted the prepration of new Tree..");
+		 //bst.printBinaryTree(afterInsertion);
+		 //System.out.println("\n\n Result " + bst.getLeastCommonAncestor(root, 3, 7));
 	 }
+	 
+	 public Node getLeastCommonAncestor(Node rootNode, int v1, int v2) {
+		 System.out.println("Got rootNode :" + rootNode);
+		 if (rootNode == null) return null;
+		 
+		 if (rootNode.data < v1 && rootNode.data < v2) {
+			 rootNode = getLeastCommonAncestor(rootNode.right, v1, v2);
+		 } else if (rootNode.data > v1 && rootNode.data > v2) {
+			 rootNode = getLeastCommonAncestor(rootNode.left, v1, v2);
+		 }
+		 return rootNode;
+	 }
+	 
 	 private void printBinaryTree(Node rootNode) {
 		if (rootNode == null) return;
 		
