@@ -1,14 +1,35 @@
 import java.util.Scanner;
+import java.util.Stack;
 import java.util.Vector;
 
 
 public class TestProgram {
 
-	public static void main1(String[] args) {
+	public static void main(String[] args) {
 		//testInternMethod();
 		//deepCopyTesting();
-		testMultiply(44917, 100000);
-		testArrays();
+		//testMultiply(44917, 100000);
+		//testArrays();
+		//pushTest();
+		testModulus();
+	}
+	public static void testModulus() {
+		long x = 72057594037927936L;
+		long y = x%60L;
+		
+		int z = (int)x%60;
+		System.out.println(Math.pow(2,  50));
+		
+	}
+	public static void pushTest() {
+		Stack<Character> stack = new Stack<>();
+		stack.push('a');
+		stack.pop();
+		stack.push('b');
+		stack.push('c');
+		stack.pop();
+		stack.push('d'); stack.pop();stack.pop(); stack.push ('e');
+		System.out.println(stack);
 	}
 	public static void testArrays() {
 		int[] a = new int[10];
@@ -124,7 +145,7 @@ public class TestProgram {
 	 }
 
 	 
-	 public static void main (String[] args)
+	 public static void main1 (String[] args)
 	 {
 		 findPrime();
 	 }

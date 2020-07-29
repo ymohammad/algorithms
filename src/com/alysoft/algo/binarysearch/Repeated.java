@@ -48,7 +48,7 @@ public class Repeated
     			arr[i1] = Integer.parseInt(sarr[i1]);
     		}
     		
-            twoRepeated(arr, n);
+            twoRepeated3(arr, n);
     		
     		
 	    }
@@ -65,6 +65,21 @@ public class Repeated
 			}
 		}
 	}
+	static void twoRepeated3(int arr[], int n){
+        
+        StringBuffer data = new StringBuffer();
+        for (int i = 0; i<arr.length; i++) {
+            int x = Math.abs(arr[i]);
+            int d = arr[x-1];
+            if (d<0) {
+                data.append(x + " ");
+                //arr[i] = arr[i]*-1;
+            } else {
+                arr[x-1] = d*-1;
+            }
+        }
+        System.out.print(data.toString());
+    }
 	static void twoRepeated2(int arr[], int n){
 		int[] copyOf = Arrays.copyOf(arr, arr.length);
          Arrays.sort(arr);
