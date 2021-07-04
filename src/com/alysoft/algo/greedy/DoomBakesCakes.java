@@ -145,7 +145,7 @@ public class DoomBakesCakes
 	{
 		
 		char[] charArray = line.toCharArray();
-		
+		char left = ' ';
 		int n = charArray.length;
 		
 		if (n > 1 && k==2 && n%k !=0 ) return "NO";
@@ -161,15 +161,16 @@ public class DoomBakesCakes
 			}
 			charArray[0] = Integer.toString(a).charAt(0);;
 			while (i<n) {
-				char ch = charArray[i];
+				ch = charArray[i];
 				if (ch != '?')
 				
-				char left = (i == 0) ? charArray[n-1] : charArray[i-1];
+				left = (i == 0) ? charArray[n-1] : charArray[i-1];
 				char right = charArray[(i+1)%n];
 				if (ch == '?') {
 					boolean isReplaced = false;
 					for (int j=0; j<k; j++) {
 						char repVal = Integer.toString(j).charAt(0);
+						char nextToRight = 0;
 						if (left != repVal && right !=repVal && right != nextToRight) {
 							charArray[i] = repVal;
 							isReplaced = true;

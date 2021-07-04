@@ -32,7 +32,7 @@ public class LinkedListHasLoop
 	 * @return
 	 */
 	public static SingleNode<Integer> getLoopNodeMethod2(SingleNode<Integer> head) {
-		
+		return null;
 	}
 	/**
 	 * Method 1: We can achieve this just be having a hastable and storing the node reference.

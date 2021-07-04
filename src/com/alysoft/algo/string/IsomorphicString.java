@@ -168,7 +168,7 @@ public class IsomorphicString
         }
         return -1;
         
-        long[] countArray = new long[256];
+/*        long[] countArray = new long[256];
         char[] charArr = S.toCharArray();
         for (char ch : charArr) {
              //int charInd = getCharIndex(ch);
@@ -180,6 +180,6 @@ public class IsomorphicString
                  return ch;
              }   
          }
-         return '$';
+         return '$';*/
     }
 }

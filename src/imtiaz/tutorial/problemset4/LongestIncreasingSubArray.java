@@ -20,7 +20,7 @@ public class LongestIncreasingSubArray {
 		int globalLength = 1;
 		
 		for(int x = 1; x<a.length; x++) {
-			optimalSolEndsHere = (optimalSolEndsHere + 1, x);
+			optimalSolEndsHere = maxOf(optimalSolEndsHere + 1, x);
 		}
 	}
 	

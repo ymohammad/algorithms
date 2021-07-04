@@ -98,7 +98,9 @@ public class Matches
 		long max = Math.max(n, m);
 		long min = Math.min(n, m);
 		if (willIWin(max%min, min, previousPlayer, currentPlayer, currentPlayer))
-		return getWinner(max%min, min, previousPlayer, currentPlayer);
+			return getWinner(max%min, min, previousPlayer, currentPlayer);
+		
+		return null;
 	}
 	private static boolean willIWin(long n, long m, String currentPlayer, String previousPlayer, String originalPlayer)
 	{

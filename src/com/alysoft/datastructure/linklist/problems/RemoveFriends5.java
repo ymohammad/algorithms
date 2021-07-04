@@ -1,10 +1,9 @@
+package com.alysoft.datastructure.linklist.problems;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.Deque;
-import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.ListIterator;
 
 // Warning: Printing unwanted or ill-formatted data to output will cause the test cases to fail
 

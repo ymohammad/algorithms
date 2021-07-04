@@ -23,6 +23,7 @@ public class LengthOfLongestSubstring {
 		if (problem == null)
 			return 0;
 		
-		if (problem )
+		//if (problem )
+		return -1;
 	}
 }

@@ -10,6 +10,7 @@ public class LeastNumberCoinsRequired {
 		if (target < 0) {
 			return 0;
 		}
+		return target;
 		
 		
 	}

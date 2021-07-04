@@ -1,3 +1,5 @@
+package com.alysoft.algorithms.hackerrank.arrays;
+
 
 import java.util.Scanner;
 

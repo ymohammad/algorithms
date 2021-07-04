@@ -4,12 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 
 /**
- * Given an array of integers, and an integer  ‘K’ , find the count of pairs of elements in the array whose sum is equal to 'K'.
+ * Given an array of integers, and an integer  ï¿½Kï¿½ , find the count of pairs of elements in the array whose sum is equal to 'K'.
 
 	Input:
 	First line of the input contains an integer T, denoting the number of test cases. Then T test cases follow. 
@@ -97,11 +96,11 @@ public class CountPairWithSum
 		}
 		int count = 0;
 		for (int i = 0; i<n; i++) {
-			int a = arr[i];
-			int val = hash.get(a);
+			int a1 = arr[i];
+			int val = hash.get(a1);
 			if (val == 1)
-				hash.remove(a);
-			int b = k-a;
+				hash.remove(a1);
+			int b = k-a1;
 			if (hash.containsKey(b) && hash.get(b)>0) {
 				
 				count++;
@@ -112,7 +111,7 @@ public class CountPairWithSum
 					count++;
 					//System.out.println(a + ", " + (k-a) + "=>" + k);
 				}
-				hash.put(a, temp);
+				hash.put(a1, temp);
 
 				temp = hash.get(b)-1;
 				while (temp > 0) {
@@ -122,7 +121,7 @@ public class CountPairWithSum
 				}
 				hash.put(b, temp);
 			} else {
-				hash.put(a, val);
+				hash.put(a1, val);
 			}
 		}
 		return count;

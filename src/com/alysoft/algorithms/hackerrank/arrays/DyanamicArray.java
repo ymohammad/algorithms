@@ -26,7 +26,7 @@ public class DyanamicArray {
         	int[] is = seqList[x];
             Arrays.fill(is, -1);
         }
-        System.arraycopy(src, srcPos, dest, destPos, length);()
+        //System.arraycopy(src, srcPos, dest, destPos, length);()
         int lastAnswer = 0;
         in.nextLine();
         ArrayList<String> queriesList = new ArrayList<String>();

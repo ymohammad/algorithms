@@ -52,6 +52,6 @@ public class PatternSearchKMP
     
     boolean KMPSearch(String pat, String txt)
     {
-        // Your code here
+		return false;
     }
 }

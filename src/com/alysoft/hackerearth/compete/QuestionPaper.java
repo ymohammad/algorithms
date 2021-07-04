@@ -53,10 +53,10 @@ public class QuestionPaper
 		{
 			for (int i = 1; i <= n; i++)
 			{
-				temp = num[i];
+				/*temp = num[i];
 				num[i] = num[i + 1];
 				num[i + 1] = temp;
-				print(num, n);
+				print(num, n);*/
 			}
 		}
 

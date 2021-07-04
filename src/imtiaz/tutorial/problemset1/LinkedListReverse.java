@@ -1,7 +1,5 @@
 package imtiaz.tutorial.problemset1;
 
-import java.util.LinkedList;
-
 public class LinkedListReverse {
 	
 	public static void main(String[] args) {
@@ -18,7 +16,7 @@ public class LinkedListReverse {
 
 
 
-	private class Node {
+	private static class Node {
 		String data;
 		Node next;
 		

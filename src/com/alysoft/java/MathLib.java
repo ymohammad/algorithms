@@ -1,7 +1,7 @@
 /*******************************************************************************************************************************
 MathLib.java
 
-Copyright © 2020, TextCloud.AI Corporation. All rights reserved.
+Copyright ï¿½ 2020, TextCloud.AI Corporation. All rights reserved.
 The Programs (which include both the software and documentation) contain proprietary information of TextCloud.AI Corporation;
 they are provided under a license agreement containing restrictions on use and disclosure and are also protected by
 copyright, patent and other intellectual and industrial property law. Reverse engineering, disassembly or de-compilation of
@@ -35,7 +35,6 @@ public class MathLib
 		mathSqrtTest();
 		
 		Character ch = new Character('a');
-		ch.isDigi
 	}
 	
 	public static void mathSqrtTest() {

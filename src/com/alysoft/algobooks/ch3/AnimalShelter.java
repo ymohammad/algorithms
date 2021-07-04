@@ -20,7 +20,7 @@ public class AnimalShelter
 	private int order = 0; // acts as timestamp
 	
 	public Animal dequeueAny() {
-		
+		return null;
 	}
 	public boolean enqueue(Animal animal) {
 		Queue<? extends Animal> animalQueue = null;
@@ -34,7 +34,8 @@ public class AnimalShelter
 		if (animalQueue != null) {
 			order++;
 			animal.setOrder(order);
-			return animalQueue.add(animal);
+			//animalQueue.add(animal);
+			return true;
 		}
 		return false;
 	}

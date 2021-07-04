@@ -83,7 +83,7 @@ public class KthSmallestDifference
 		int maxValue = Math.abs(arr[0]-arr[n-1]);
 		int minValue = Math.abs(arr[0]-arr[1]);
 		
-		int currentMin;
+		int currentMin = -1;
 		for (int i = 1; i<n-2; i++) {
 			currentMin = Math.abs(arr[i]-arr[i+1]);
 			if (currentMin < minValue) {
@@ -101,6 +101,7 @@ public class KthSmallestDifference
 			}
 			return minValue;
 		}
+		return currentMin;
 	}
 	private static int findPairsCount(int[] arr, int n, int mid)
 	{
