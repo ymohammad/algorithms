@@ -39,31 +39,51 @@ public class GraphUtils {
 	}
 	return graph;
     }
-    public static void addEdge(List<List<Integer>> graph, int source, int node) {
-	List<Integer> list0 = null;
-	if (source < graph.size()) {
-	    list0 = graph.get(source);
-	    if (!list0.contains(node)) {
-		list0.add(node);
-		graph.set(source, list0);
+    public static void addEdge(List<List<Integer>> graph, int node1, int node2) {
+	List<Integer> node1List = graph.get(node1);
+	node1List.add(node2);
+	List<Integer> node2List = graph.get(node2);
+	node2List.add(node1);
+	
+	/*List<Integer> list0 = null;
+	if (node1 < graph.size()) {
+	    list0 = graph.get(node1);
+	    if (!list0.contains(node2)) {
+		list0.add(node2);
+		graph.set(node1, list0);
 	    }
 	} else {
 	    list0 = new ArrayList<Integer>();
-	    list0.add(node);
-	    graph.add(source, list0);
+	    list0.add(node2);
+	    graph.add(node1, list0);
 	}
 	
 	
-	if (node < graph.size()) {
-	    list0 = graph.get(node);
-	    if (!list0.contains(source) ) {
-		list0.add(source);
-		graph.set(node, list0);
+	if (node2 < graph.size()) {
+	    list0 = graph.get(node2);
+	    if (!list0.contains(node1) ) {
+		list0.add(node1);
+		graph.set(node2, list0);
 	    }
 	} else {
 	    list0 = new ArrayList<Integer>();
-	    list0.add(source);
-	    graph.add(node, list0);
+	    list0.add(node1);
+	    graph.add(node2, list0);
+	}*/
+    }
+    
+    public static void addDirectedEdge(List<List<Integer>> graph, int node1, int node2) {
+	List<Integer> adjList = graph.get(node1);
+	adjList.add(node2);
+    }
+    public static int[] getPowerArray(List<List<Integer>> graph) {
+	int[] powerArr = new int[graph.size()];
+	for (int x = 0; x < graph.size(); x++) {
+	    List<Integer> adjList = graph.get(x);
+	    for (int u : adjList) {
+		powerArr[u] = powerArr[u] + 1;
+	    }
 	}
+	return powerArr;
     }
 }
