@@ -19,6 +19,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+import com.alysoft.geeksforgeeks.graph.GraphUtils;
+
 /**
 * Class ShortestPathBetweenNodes
 */
@@ -53,41 +55,15 @@ public class ShortestPathBetweenNodes {
 	return distance;
     }
     
-    public static void addEdge(List<List<Integer>> graph, int source, int node) {
-	List<Integer> list0 = null;
-	if (source < graph.size()) {
-	    list0 = graph.get(source);
-	    if (!list0.contains(node)) {
-		list0.add(node);
-		graph.set(source, list0);
-	    }
-	} else {
-	    list0 = new ArrayList<Integer>();
-	    list0.add(node);
-	    graph.add(source, list0);
-	}
-	
-	
-	if (node < graph.size()) {
-	    list0 = graph.get(node);
-	    if (!list0.contains(source) ) {
-		list0.add(source);
-		graph.set(node, list0);
-	    }
-	} else {
-	    list0 = new ArrayList<Integer>();
-	    list0.add(source);
-	    graph.add(node, list0);
-	}
-    }
+    
     public static void main(String[] args) {
 	List<List<Integer>> graph = new ArrayList<List<Integer>>();
 	
-	addEdge(graph, 0, 1);
-	addEdge(graph, 0, 2);
-	addEdge(graph, 1, 3);
-	addEdge(graph, 1, 2);
-	addEdge(graph, 2, 3);
+	GraphUtils.addEdge(graph, 0, 1);
+	GraphUtils.addEdge(graph, 0, 2);
+	GraphUtils.addEdge(graph, 1, 3);
+	GraphUtils.addEdge(graph, 1, 2);
+	GraphUtils.addEdge(graph, 2, 3);
 	
 	boolean[] visited = new boolean[graph.size()];
 	int[] shortestDistanceFromNode = getShortestDistanceFromNode(graph, 0, visited);
@@ -98,14 +74,14 @@ public class ShortestPathBetweenNodes {
 	
 	graph = new ArrayList<List<Integer>>(6);
 	
-	addEdge(graph, 0, 1);
-	addEdge(graph, 0, 2);
-	addEdge(graph, 1, 3);
-	addEdge(graph, 2, 3);
-	addEdge(graph, 2, 4);
-	addEdge(graph, 3, 5);
-	addEdge(graph, 4, 5);
-	addEdge(graph, 0, 4);
+	GraphUtils.addEdge(graph, 0, 1);
+	GraphUtils.addEdge(graph, 0, 2);
+	GraphUtils.addEdge(graph, 1, 3);
+	GraphUtils.addEdge(graph, 2, 3);
+	GraphUtils.addEdge(graph, 2, 4);
+	GraphUtils.addEdge(graph, 3, 5);
+	GraphUtils.addEdge(graph, 4, 5);
+	GraphUtils.addEdge(graph, 0, 4);
 	
 	System.out.println("\nShortestPathBetweenNodes.main() Graph Nodes Count :" + graph.size());
 	visited = new boolean[graph.size()];
