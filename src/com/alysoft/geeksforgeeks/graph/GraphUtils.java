@@ -32,12 +32,33 @@ import java.util.List;
 */
 public class GraphUtils {
     
+    public static List<List<Edge>> createWtGraph(int vertexCount) {
+	List<List<Edge>> graph = new ArrayList<List<Edge>>(vertexCount);
+	for (int i = 0; i< vertexCount; i++) {
+	    graph.add(new ArrayList<Edge>());
+	}
+	return graph;
+    }
     public static List<List<Integer>> createGraph(int nodesCount) {
 	List<List<Integer>> graph = new ArrayList<List<Integer>>(nodesCount);
 	for (int i = 0; i< nodesCount; i++) {
 	    graph.add(new ArrayList<Integer>());
 	}
 	return graph;
+    }
+    public static void addDirectedWtEdge(List<List<Edge>> graph, int src, int dest, int wt) {
+	List<Edge> srcAdjList = graph.get(src);
+	srcAdjList.add(new Edge(dest, wt));
+	
+	List<Edge> desAdjList = graph.get(dest);
+	desAdjList.add(new Edge(src, wt));
+    }
+    public static void addDirectedWtEdge(List<List<Edge>> graph, int src, int dest) {
+	List<Edge> srcAdjList = graph.get(src);
+	srcAdjList.add(new Edge(dest, 1));
+	
+	List<Edge> desAdjList = graph.get(dest);
+	desAdjList.add(new Edge(src, 1));
     }
     public static void addEdge(List<List<Integer>> graph, int node1, int node2) {
 	List<Integer> node1List = graph.get(node1);
