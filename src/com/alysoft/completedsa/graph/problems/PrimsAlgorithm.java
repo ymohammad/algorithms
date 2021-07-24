@@ -1,18 +1,6 @@
 /*******************************************************************************************************************************
 PrimsAlgorithm.java
 
-Copyright © 2021, Power Integrations Corporation. All rights reserved.
-The Programs (which include both the software and documentation) contain proprietary information of Power Integrations Corporation;
-they are provided under a license agreement containing restrictions on use and disclosure and are also protected by
-copyright, patent and other intellectual and industrial property law. Reverse engineering, disassembly or de-compilation of
-the programs is prohibited.
-Program Documentation is licensed for use solely to support the deployment of the Programs and not for any other
-purpose.
-The information contained in this document is subject to change without notice. If you find any problems in the
-documentation, please report them to us in writing. Power Integrations Corporation does not warrant that this document is error free.
-Except as may be expressly permitted in your license agreement for these Programs, no part of these Programs may be
-reproduced or transmitted in any form or by any means, electronic or mechanical, for any purpose, without the express
-written permission of Power Integrations Corporation.
 
 Author : ymohammad
 Date   : Jul 24, 2021
@@ -24,10 +12,88 @@ Last modified on : Jul 24, 2021
 
 package com.alysoft.completedsa.graph.problems;
 
+import java.util.List;
+import java.util.PriorityQueue;
+
+import com.alysoft.completedsa.graph.Edge;
+import com.alysoft.completedsa.graph.GraphUtils;
+
 /**
 * Class PrimsAlgorithm
 */
 public class PrimsAlgorithm {
     
-    
+    public static void printMST(List<List<Edge>> graph, int srcVertex, boolean[] visited) {
+	PriorityQueue<Pair> pQueue = new PriorityQueue<Pair>();
+	pQueue.add(new Pair(srcVertex, 0, -1));
+	
+	while (pQueue.size() > 0) {
+	    Pair rem = pQueue.poll();
+	    if (visited[rem.vertex] == true) continue;
+	    
+	    visited[rem.vertex] = true;
+	    if (rem.acquiringVertex != -1)
+		System.out.println(rem.vertex + " via " + rem.acquiringVertex + " @ " + rem.weight);
+	    
+	    for (Edge e: graph.get(rem.vertex)) {
+		if (visited[e.getnNode()] == false) {
+		    pQueue.add(new Pair(e.getnNode(), e.getWeight(), rem.vertex));
+		}
+	    }
+	}
+    }
+    public static void checkMST(List<List<Edge>> graph, int srcVertex) {
+	boolean[] visited = new boolean[graph.size()];
+	printMST(graph, srcVertex, visited);
+    }
+    public static void main(String[] args) {
+	List<List<Edge>> graph = GraphUtils.createWtGraph(9);
+	GraphUtils.addDirectedWtEdge(graph, 0, 1, 4);
+	GraphUtils.addDirectedWtEdge(graph, 1, 2, 8);
+	GraphUtils.addDirectedWtEdge(graph, 2, 3, 7);
+	GraphUtils.addDirectedWtEdge(graph, 3, 7, 9);
+	GraphUtils.addDirectedWtEdge(graph, 0, 4, 8);
+	GraphUtils.addDirectedWtEdge(graph, 4, 5, 1);
+	GraphUtils.addDirectedWtEdge(graph, 4, 8, 7);
+	GraphUtils.addDirectedWtEdge(graph, 8, 2, 2);
+	GraphUtils.addDirectedWtEdge(graph, 8, 5, 6);
+	GraphUtils.addDirectedWtEdge(graph, 5, 6, 2);
+	GraphUtils.addDirectedWtEdge(graph, 6, 2, 4);
+	GraphUtils.addDirectedWtEdge(graph, 6, 3, 14);
+	GraphUtils.addDirectedWtEdge(graph, 6, 7, 10);
+	
+	checkMST(graph, 0);
+	
+	System.out.println("\n*****************");
+	graph = GraphUtils.createWtGraph(7);
+	GraphUtils.addDirectedWtEdge(graph, 0, 1, 10);
+	GraphUtils.addDirectedWtEdge(graph, 1, 2, 10);
+	GraphUtils.addDirectedWtEdge(graph, 2, 3, 10);
+	GraphUtils.addDirectedWtEdge(graph, 0, 3, 5);
+	GraphUtils.addDirectedWtEdge(graph, 3, 4, 12);
+	GraphUtils.addDirectedWtEdge(graph, 4, 5, 3);
+	GraphUtils.addDirectedWtEdge(graph, 5, 6, 3);
+	GraphUtils.addDirectedWtEdge(graph, 4, 6, 8);
+	
+	checkMST(graph, 0);
+    }
+    static class Pair implements Comparable<Pair> {
+	int vertex;
+	int weight;
+	int acquiringVertex;
+	
+	public Pair(int v, int w, int acquiringVertex) {
+	    this.vertex = v;
+	    this.weight = w;
+	    this.acquiringVertex = acquiringVertex;
+	}
+	@Override
+	public int compareTo(Pair o) {
+	    return this.weight - o.weight;
+	}
+	@Override
+	public String toString() {
+	    return "Pair [vertex=" + this.vertex + ", weight=" + this.weight + ", acquiringVertex=" + this.acquiringVertex + "]";
+	}
+    }
 }
