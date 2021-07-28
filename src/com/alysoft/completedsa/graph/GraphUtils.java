@@ -46,51 +46,32 @@ public class GraphUtils {
 	}
 	return graph;
     }
+    
+    public static ArrayList<Edge>[] createWtGraphArr(int nodesCount) {
+	ArrayList<Edge>[] graph = new ArrayList[nodesCount];
+	for (int i = 0; i< nodesCount; i++) {
+	    graph[i] = new ArrayList<Edge>();
+	}
+	return graph;
+    }
     public static void addDirectedWtEdge(List<List<Edge>> graph, int src, int dest, int wt) {
-	List<Edge> srcAdjList = graph.get(src);
-	srcAdjList.add(new Edge(dest, wt));
-	
-	List<Edge> desAdjList = graph.get(dest);
-	desAdjList.add(new Edge(src, wt));
+	addEdge(graph, src, dest, wt, false);
     }
     public static void addDirectedWtEdge(List<List<Edge>> graph, int src, int dest) {
-	List<Edge> srcAdjList = graph.get(src);
-	srcAdjList.add(new Edge(dest, 1));
-	
-	List<Edge> desAdjList = graph.get(dest);
-	desAdjList.add(new Edge(src, 1));
+	addUnDirectedWtEdge(graph, src, dest, 1);
     }
+    public static void addUnDirectedWtEdge(List<List<Edge>> graph, int src, int dest, int wt) {
+	addEdge(graph, src, dest, wt, true);
+    }
+    public static void addUnDirectedWtEdge(List<List<Edge>> graph, int src, int dest) {
+	addUnDirectedWtEdge(graph, src, dest, 1);
+    }
+    
     public static void addEdge(List<List<Integer>> graph, int node1, int node2) {
 	List<Integer> node1List = graph.get(node1);
 	node1List.add(node2);
 	List<Integer> node2List = graph.get(node2);
 	node2List.add(node1);
-	
-	/*List<Integer> list0 = null;
-	if (node1 < graph.size()) {
-	    list0 = graph.get(node1);
-	    if (!list0.contains(node2)) {
-		list0.add(node2);
-		graph.set(node1, list0);
-	    }
-	} else {
-	    list0 = new ArrayList<Integer>();
-	    list0.add(node2);
-	    graph.add(node1, list0);
-	}
-	
-	
-	if (node2 < graph.size()) {
-	    list0 = graph.get(node2);
-	    if (!list0.contains(node1) ) {
-		list0.add(node1);
-		graph.set(node2, list0);
-	    }
-	} else {
-	    list0 = new ArrayList<Integer>();
-	    list0.add(node1);
-	    graph.add(node2, list0);
-	}*/
     }
     
     public static void addDirectedEdge(List<List<Integer>> graph, int node1, int node2) {
@@ -107,4 +88,18 @@ public class GraphUtils {
 	}
 	return powerArr;
     }
+    
+    private static void addEdge(List<List<Edge>> graph, int src, int dest, int wt, boolean isUndirected) {
+	List<Edge> srcAdjList = graph.get(src);
+	srcAdjList.add(new Edge(dest, wt));
+	if (isUndirected) {
+	    List<Edge> desAdjList = graph.get(dest);
+	    desAdjList.add(new Edge(src, wt));
+	}
+    }
+    public static void addUDWtEdge(ArrayList<Edge>[] graph, int v1, int v2, int wt) {
+	graph[v1].add(new Edge(v1, v2, wt));
+        graph[v2].add(new Edge(v2, v1, wt));
+    }
+    
 }

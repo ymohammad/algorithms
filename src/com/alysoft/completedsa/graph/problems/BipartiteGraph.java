@@ -78,10 +78,10 @@ public class BipartiteGraph {
     }
     public static void main(String[] args) {
 	List<List<Edge>> graph = GraphUtils.createWtGraph(4);
-	GraphUtils.addDirectedWtEdge(graph, 0, 1);
-	GraphUtils.addDirectedWtEdge(graph, 1, 2);
-	GraphUtils.addDirectedWtEdge(graph, 2, 3);
-	GraphUtils.addDirectedWtEdge(graph, 3, 1);
+	GraphUtils.addUnDirectedWtEdge(graph, 0, 1);
+	GraphUtils.addUnDirectedWtEdge(graph, 1, 2);
+	GraphUtils.addUnDirectedWtEdge(graph, 2, 3);
+	GraphUtils.addUnDirectedWtEdge(graph, 3, 1);
 	
 	checkGraph(graph);
     }

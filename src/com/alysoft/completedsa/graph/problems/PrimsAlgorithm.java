@@ -48,32 +48,32 @@ public class PrimsAlgorithm {
     }
     public static void main(String[] args) {
 	List<List<Edge>> graph = GraphUtils.createWtGraph(9);
-	GraphUtils.addDirectedWtEdge(graph, 0, 1, 4);
-	GraphUtils.addDirectedWtEdge(graph, 1, 2, 8);
-	GraphUtils.addDirectedWtEdge(graph, 2, 3, 7);
-	GraphUtils.addDirectedWtEdge(graph, 3, 7, 9);
-	GraphUtils.addDirectedWtEdge(graph, 0, 4, 8);
-	GraphUtils.addDirectedWtEdge(graph, 4, 5, 1);
-	GraphUtils.addDirectedWtEdge(graph, 4, 8, 7);
-	GraphUtils.addDirectedWtEdge(graph, 8, 2, 2);
-	GraphUtils.addDirectedWtEdge(graph, 8, 5, 6);
-	GraphUtils.addDirectedWtEdge(graph, 5, 6, 2);
-	GraphUtils.addDirectedWtEdge(graph, 6, 2, 4);
-	GraphUtils.addDirectedWtEdge(graph, 6, 3, 14);
-	GraphUtils.addDirectedWtEdge(graph, 6, 7, 10);
+	GraphUtils.addUnDirectedWtEdge(graph, 0, 1, 4);
+	GraphUtils.addUnDirectedWtEdge(graph, 1, 2, 8);
+	GraphUtils.addUnDirectedWtEdge(graph, 2, 3, 7);
+	GraphUtils.addUnDirectedWtEdge(graph, 3, 7, 9);
+	GraphUtils.addUnDirectedWtEdge(graph, 0, 4, 8);
+	GraphUtils.addUnDirectedWtEdge(graph, 4, 5, 1);
+	GraphUtils.addUnDirectedWtEdge(graph, 4, 8, 7);
+	GraphUtils.addUnDirectedWtEdge(graph, 8, 2, 2);
+	GraphUtils.addUnDirectedWtEdge(graph, 8, 5, 6);
+	GraphUtils.addUnDirectedWtEdge(graph, 5, 6, 2);
+	GraphUtils.addUnDirectedWtEdge(graph, 6, 2, 4);
+	GraphUtils.addUnDirectedWtEdge(graph, 6, 3, 14);
+	GraphUtils.addUnDirectedWtEdge(graph, 6, 7, 10);
 	
 	checkMST(graph, 0);
 	
 	System.out.println("\n*****************");
 	graph = GraphUtils.createWtGraph(7);
-	GraphUtils.addDirectedWtEdge(graph, 0, 1, 10);
-	GraphUtils.addDirectedWtEdge(graph, 1, 2, 10);
-	GraphUtils.addDirectedWtEdge(graph, 2, 3, 10);
-	GraphUtils.addDirectedWtEdge(graph, 0, 3, 5);
-	GraphUtils.addDirectedWtEdge(graph, 3, 4, 12);
-	GraphUtils.addDirectedWtEdge(graph, 4, 5, 3);
-	GraphUtils.addDirectedWtEdge(graph, 5, 6, 3);
-	GraphUtils.addDirectedWtEdge(graph, 4, 6, 8);
+	GraphUtils.addUnDirectedWtEdge(graph, 0, 1, 10);
+	GraphUtils.addUnDirectedWtEdge(graph, 1, 2, 10);
+	GraphUtils.addUnDirectedWtEdge(graph, 2, 3, 10);
+	GraphUtils.addUnDirectedWtEdge(graph, 0, 3, 5);
+	GraphUtils.addUnDirectedWtEdge(graph, 3, 4, 12);
+	GraphUtils.addUnDirectedWtEdge(graph, 4, 5, 3);
+	GraphUtils.addUnDirectedWtEdge(graph, 5, 6, 3);
+	GraphUtils.addUnDirectedWtEdge(graph, 4, 6, 8);
 	
 	checkMST(graph, 0);
     }

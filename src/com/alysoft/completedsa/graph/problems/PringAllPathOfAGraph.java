@@ -24,7 +24,9 @@ Last modified on : Jul 18, 2021
 
 package com.alysoft.completedsa.graph.problems;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.PriorityQueue;
 
 import com.alysoft.completedsa.graph.Edge;
 import com.alysoft.completedsa.graph.GraphUtils;
@@ -57,13 +59,18 @@ public class PringAllPathOfAGraph {
     
     public static void main(String[] args) {
 	List<List<Edge>> graph = GraphUtils.createWtGraph(6);
-	GraphUtils.addDirectedWtEdge(graph, 0, 1, 1);
-	GraphUtils.addDirectedWtEdge(graph, 1, 2, 1);
-	GraphUtils.addDirectedWtEdge(graph, 1, 3, 1);
-	GraphUtils.addDirectedWtEdge(graph, 1, 4, 1);
-	GraphUtils.addDirectedWtEdge(graph, 2, 5, 1);
-	GraphUtils.addDirectedWtEdge(graph, 3, 4, 1);
-	GraphUtils.addDirectedWtEdge(graph, 4, 5, 1);
+	GraphUtils.addUnDirectedWtEdge(graph, 0, 1, 1);
+	GraphUtils.addUnDirectedWtEdge(graph, 1, 2, 1);
+	GraphUtils.addUnDirectedWtEdge(graph, 1, 3, 1);
+	GraphUtils.addUnDirectedWtEdge(graph, 1, 4, 1);
+	GraphUtils.addUnDirectedWtEdge(graph, 2, 5, 1);
+	GraphUtils.addUnDirectedWtEdge(graph, 3, 4, 1);
+	GraphUtils.addUnDirectedWtEdge(graph, 4, 5, 1);
+	
+	for (int i = 0; i<graph.size(); i++) {
+	    List<Edge> adjList = graph.get(i);
+	    Collections.sort(adjList);
+	}
 	
 	invokeMain(graph, 0, 5);
 	System.out.println();
@@ -73,15 +80,15 @@ public class PringAllPathOfAGraph {
 	
 	
 	graph = GraphUtils.createWtGraph(7);
-	GraphUtils.addDirectedWtEdge(graph, 0, 1);
-	GraphUtils.addDirectedWtEdge(graph, 0, 3);
-	GraphUtils.addDirectedWtEdge(graph, 1, 2);
-	GraphUtils.addDirectedWtEdge(graph, 2, 3);
-	GraphUtils.addDirectedWtEdge(graph, 2, 5);
-	GraphUtils.addDirectedWtEdge(graph, 3, 4);
-	GraphUtils.addDirectedWtEdge(graph, 4, 5);
-	GraphUtils.addDirectedWtEdge(graph, 4, 6);
-	GraphUtils.addDirectedWtEdge(graph, 5, 6);
+	GraphUtils.addUnDirectedWtEdge(graph, 0, 1);
+	GraphUtils.addUnDirectedWtEdge(graph, 0, 3);
+	GraphUtils.addUnDirectedWtEdge(graph, 1, 2);
+	GraphUtils.addUnDirectedWtEdge(graph, 2, 3);
+	GraphUtils.addUnDirectedWtEdge(graph, 2, 5);
+	GraphUtils.addUnDirectedWtEdge(graph, 3, 4);
+	GraphUtils.addUnDirectedWtEdge(graph, 4, 5);
+	GraphUtils.addUnDirectedWtEdge(graph, 4, 6);
+	GraphUtils.addUnDirectedWtEdge(graph, 5, 6);
 	
 	invokeMain(graph, 0, 6);
 	System.out.println();

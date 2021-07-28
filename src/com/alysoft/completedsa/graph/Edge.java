@@ -27,7 +27,8 @@ package com.alysoft.completedsa.graph;
 /**
 * Class Edge
 */
-public class Edge {
+public class Edge implements Comparable<Edge> {
+    private int sNode;
     private int nNode;
     private int weight;
     
@@ -36,7 +37,10 @@ public class Edge {
 	this.nNode = nNode;
 	this.weight = weight;
     }
-
+    public Edge(int sNode, int nNode, int weight) {
+	this(nNode, weight);
+	this.sNode = sNode;
+    }
     public int getnNode() {
         return this.nNode;
     }
@@ -50,9 +54,20 @@ public class Edge {
         this.weight = weight;
     }
 
+    public int getsNode() {
+        return this.sNode;
+    }
+    public void setsNode(int sNode) {
+        this.sNode = sNode;
+    }
     @Override
     public String toString() {
 	return "Edge [nNode=" + this.nNode + ", weight=" + this.weight + "]";
+    }
+
+    @Override
+    public int compareTo(Edge o) {
+	return this.nNode-o.nNode;
     }
     
 }

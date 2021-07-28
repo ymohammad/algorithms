@@ -54,24 +54,24 @@ public class HamiltonianPath {
     }
     public static void main(String[] args) {
 	List<List<Edge>> graph = GraphUtils.createWtGraph(4);
-	GraphUtils.addDirectedWtEdge(graph, 0, 1);
-	GraphUtils.addDirectedWtEdge(graph, 1, 2);
-	GraphUtils.addDirectedWtEdge(graph, 2, 3);
-	GraphUtils.addDirectedWtEdge(graph, 3, 1);
+	GraphUtils.addUnDirectedWtEdge(graph, 0, 1);
+	GraphUtils.addUnDirectedWtEdge(graph, 1, 2);
+	GraphUtils.addUnDirectedWtEdge(graph, 2, 3);
+	GraphUtils.addUnDirectedWtEdge(graph, 3, 1);
 	
 	HashSet<Integer> visited = new HashSet<Integer>();
 	printPath(graph, 0, visited, 0, "0");
 	
 	graph = GraphUtils.createWtGraph(7);
-	GraphUtils.addDirectedWtEdge(graph, 0, 1);
-	GraphUtils.addDirectedWtEdge(graph, 0, 3);
-	GraphUtils.addDirectedWtEdge(graph, 1, 2);
-	GraphUtils.addDirectedWtEdge(graph, 2, 3);
-	GraphUtils.addDirectedWtEdge(graph, 2, 5);
-	GraphUtils.addDirectedWtEdge(graph, 3, 4);
-	GraphUtils.addDirectedWtEdge(graph, 4, 5);
-	GraphUtils.addDirectedWtEdge(graph, 4, 6);
-	GraphUtils.addDirectedWtEdge(graph, 5, 6);
+	GraphUtils.addUnDirectedWtEdge(graph, 0, 1);
+	GraphUtils.addUnDirectedWtEdge(graph, 0, 3);
+	GraphUtils.addUnDirectedWtEdge(graph, 1, 2);
+	GraphUtils.addUnDirectedWtEdge(graph, 2, 3);
+	GraphUtils.addUnDirectedWtEdge(graph, 2, 5);
+	GraphUtils.addUnDirectedWtEdge(graph, 3, 4);
+	GraphUtils.addUnDirectedWtEdge(graph, 4, 5);
+	GraphUtils.addUnDirectedWtEdge(graph, 4, 6);
+	GraphUtils.addUnDirectedWtEdge(graph, 5, 6);
 	
 	visited = new HashSet<Integer>();
 	printPath(graph, 0, visited, 0, "0");
